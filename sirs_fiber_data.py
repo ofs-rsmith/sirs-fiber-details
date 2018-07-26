@@ -10,8 +10,9 @@ from imapclient import IMAPClient
 
 def store_attachment(part):
     """ Store attached files as they are and with the same name. """
-    TARGET = '~/sirs-fiber-details/attachments'  # this is the path where attachments are stored 
-
+    this_dir = os.path.dirname(os.path.realpath(__file__))
+    TARGET = os.path.join(this_dir, 'attachments')
+    
     filename = part.get_filename()
     att_path = os.path.join(TARGET, filename)
  
